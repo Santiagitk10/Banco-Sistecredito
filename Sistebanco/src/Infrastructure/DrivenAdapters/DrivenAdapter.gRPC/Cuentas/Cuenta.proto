@@ -1,0 +1,48 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServicioCuenta";
+
+import "google/protobuf/timestamp.proto";
+import "Clientes/Cliente.proto";
+package Cuentas;
+
+service ServicioCuenta {
+  rpc ConsultarEstadoDeCuenta (IdCuenta) returns (Clientes.Cuenta);
+  rpc CancelarCuenta (IdCuenta) returns (Clientes.Empty);
+  rpc MarcarCuentaExentaDeGravamen (IdCuentaYCliente) returns (Clientes.Cuenta);
+  rpc CrearCuenta (IdClienteYCuenta) returns (Clientes.Cuenta);
+}
+
+message IdCuenta{
+	string id = 1;
+}
+
+message IdCuentaYCliente{
+	string id_cliente= 1;
+	string id_cuenta = 2;
+}
+
+message IdClienteYCuenta{
+	string id_cliente= 1;
+	CuentaRequest cuenta = 2;
+}
+
+message CuentaRequest{
+	string tipo_de_cuenta = 1;
+}
+
+message Transaccion {
+	string id = 1;
+	string monto = 2;
+	optional string id_cuenta_destino = 3;
+	optional string mensaje = 4;
+	string tipo_transaccion = 5;
+	google.protobuf.Timestamp fecha_del_movimiento = 6;
+	string gravamen_del_movimiento = 7;
+}
+
+message Transacciones {
+	repeated Transaccion transacciones = 1;
+}
+
+

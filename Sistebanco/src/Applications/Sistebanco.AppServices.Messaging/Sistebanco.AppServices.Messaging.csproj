@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	  <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="$(AspNetCoreHealthChecksMongoDb)" />
+	  <PackageReference Include="Azure.Identity" Version="$(AzureIdentity)" />
+	  <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="$(AzureExtensionsAspNetCoreConfigurationSecrets)" />
+
+	  <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="$(AspNetCoreHealthChecksRedis)" />
+
+	  <PackageReference Include="AutoMapper.Data" Version="$(AutoMapperData)" />
+	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="$(AutoMapperExtensionsMicrosoftDependencyInjection)" />
+
+	  <PackageReference Include="credinet.comun.api.core3" Version="$(credinetcomunapicore3)" />
+	  <PackageReference Include="credinet-exception-middleware" Version="$(credinetexceptionmiddleware)" />
+	  <PackageReference Include="FluentValidation.AspNetCore" Version="$(FluentValidationAspNetCore)" />
+
+	  <PackageReference Include="StackExchange.Redis" Version="$(StackExchangeRedis)" />
+	  <PackageReference Include="WindowsAzure.Storage" Version="$(WindowsAzureStorage)" />
+	  <PackageReference Include="Elastic.Apm.SerilogEnricher" Version="$(ElasticApmSerilogEnricher)" />
+
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCoreMvcNewtonsoftJson)" />
+	  <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="$(MicrosoftExtensionsPlatformAbstractions)" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="$(MicrosoftExtensionsConfigurationAzureKeyVault)" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(MicrosoftVisualStudioAzureContainersToolsTargets)" />
+
+	  <PackageReference Include="OpenTelemetry.Exporter.Zipkin" Version="$(OpenTelemetryExporterZipkin)" />
+	  <PackageReference Include="OpenTelemetry.Exporter.Console" Version="$(OpenTelemetryExporterConsole)" />
+	  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetryExtensionsHosting)" />
+	  <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="$(OpenTelemetryInstrumentationHttp)" />
+	  <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="$(OpenTelemetryInstrumentationAspNetCore)" />
+	  <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" Version="$(OpenTelemetryContribInstrumentationEntityFrameworkCore)" />
+
+	  <PackageReference Include="SC.Configuration.Provider.Mongo" Version="$(SCConfigurationProviderMongo)" />
+
+	  <PackageReference Include="Serilog" Version="$(Serilog)" />
+	  <PackageReference Include="Serilog.AspNetCore" Version="$(SerilogAspNetCore)" />
+	  <PackageReference Include="Serilog.Enrichers.Span" Version="$(SerilogEnrichersSpan)" />
+	  <PackageReference Include="Serilog.Extensions.Hosting" Version="$(SerilogExtensionsHosting)" />
+	  <PackageReference Include="Serilog.Sinks.Console" Version="$(SerilogSinksConsole)" />
+	  <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="$(SerilogSinksElasticsearch)" />
+
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain.Model\Domain.Model.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\EntryPoints\EntryPoints.ServiceBus\EntryPoints.ServiceBus.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Helpers\Helpers.ObjectsUtils\Helpers.ObjectsUtils.csproj" />
+    <ProjectReference Include="..\Sistebanco.AppServices\Sistebanco.AppServices.csproj" />
+  </ItemGroup>
+
+</Project>

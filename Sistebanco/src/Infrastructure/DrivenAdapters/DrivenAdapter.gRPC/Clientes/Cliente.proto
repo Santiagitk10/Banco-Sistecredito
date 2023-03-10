@@ -1,0 +1,83 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServicioCliente";
+
+import "google/protobuf/timestamp.proto";
+
+package Clientes;
+
+
+service ServicioCliente{
+	rpc CrearCliente (ClienteCrear) returns (Cliente);
+	rpc ModificarCliente (Cliente) returns (Cliente);
+	rpc ObtenerClientePorDocumentoIdentidad (DocumentoIdentidad) returns (Cliente);
+	rpc ObtenerTodosLosClientes (Empty) returns (Clientes);
+
+}
+
+message Empty {
+
+}
+
+message DocumentoIdentidad {
+	string documento_identidad = 1;
+}
+
+
+message ClienteCrear {
+	string nombres = 1;
+	string appellidos = 2;
+	string tipo_documento = 3;
+	string documento_identidad = 4;
+	string correo_electronico = 5;
+	optional Cuentas cuentas = 6;
+	google.protobuf.Timestamp fecha_de_nacimiento = 7;
+}
+
+
+message Cliente {
+	string id = 1;
+	string nombres = 2;
+	string appellidos = 3;
+	string tipo_documento = 4;
+	string documento_identidad = 5;
+	string correo_electronico = 6;
+	optional Cuentas cuentas = 7;
+	optional google.protobuf.Timestamp fecha_de_nacimiento = 8;
+	google.protobuf.Timestamp fecha_de_creacion = 9;
+	google.protobuf.Timestamp fecha_de_modificacion = 10;
+}
+
+
+message Cuenta{
+	string id = 1;
+	string saldo = 2;
+	string saldo_disponible = 3;
+	optional Transacciones transacciones = 4;
+	bool es_no_gravable = 5;
+	string estado_de_cuenta = 6;
+	string tipo_de_cuenta = 7;
+	string sobregiro = 8;
+}
+
+message Transacciones {
+	repeated Transaccion transacciones = 1;
+}
+
+message Transaccion {
+	string id = 1;
+	string monto = 2;
+	optional string id_cuenta_destino = 3;
+	optional string mensaje = 4;
+	string tipo_transaccion = 5;
+	google.protobuf.Timestamp fecha_del_movimiento = 6;
+	string gravamen_del_movimiento = 7;
+}
+
+message Cuentas {
+	repeated Cuenta cuentas = 1;
+}
+
+message Clientes {
+	repeated Cliente clientes = 1;
+}

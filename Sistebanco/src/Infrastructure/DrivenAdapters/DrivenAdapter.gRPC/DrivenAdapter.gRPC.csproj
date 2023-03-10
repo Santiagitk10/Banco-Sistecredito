@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Clientes\Cliente.proto" />
+    <None Remove="Cuentas\Cuenta.proto" />
+    <None Remove="Transacciones\Transaccion.proto" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.22.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.51.0" />
+		<PackageReference Include="Grpc.AspNetcore.Server.ClientFactory" Version="2.51.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.51.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Domain\Domain.Model\Domain.Model.csproj" />
+	  <ProjectReference Include="..\..\..\Domain\Domain.UseCase\Domain.UseCase.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Protobuf Include="Clientes\Cliente.proto" ProtoRoot="./"/>
+	  <Protobuf Include="Cuentas\Cuenta.proto"  />
+	  <Protobuf Include="Transacciones\Transaccion.proto" />
+	</ItemGroup>
+</Project>

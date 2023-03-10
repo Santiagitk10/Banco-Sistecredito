@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Domain\Domain.Model\Domain.Model.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\DrivenAdapters\DrivenAdapters.Mongo\DrivenAdapters.Mongo.csproj" />
+  </ItemGroup>
+
+</Project>

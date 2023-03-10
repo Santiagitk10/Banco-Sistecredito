@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.10.0" />
+    <PackageReference Include="Moq" Version="$(Moq)" />
+    <PackageReference Include="xunit" Version="$(XUnitPackageVersion)" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="$(XUnitRunnerVisualstudio)">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Domain\Domain.Model\Domain.Model.csproj" />
+    <ProjectReference Include="..\..\..\src\Domain\Domain.UseCase\Domain.UseCase.csproj" />
+    <ProjectReference Include="..\..\Helpers\Helpers.Domain\Helpers.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

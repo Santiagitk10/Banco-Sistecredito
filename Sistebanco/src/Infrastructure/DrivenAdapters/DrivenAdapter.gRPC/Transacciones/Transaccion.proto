@@ -1,0 +1,36 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServicioTransaccion";
+
+import "google/protobuf/timestamp.proto";
+import "Clientes/Cliente.proto";
+
+package Transacciones;
+
+
+service ServicioTransaccion {
+	rpc Consignar (DatosConsignarYRetirar) returns (Clientes.Transaccion);
+	rpc Retirar (DatosConsignarYRetirar) returns (Clientes.Transaccion);
+	rpc Transferir (DatosTransferir) returns (Clientes.Transaccion);
+}
+
+
+message DatosConsignarYRetirar {
+	string id_Cliente = 1;
+	string id_Cuenta = 2;
+	string monto = 3;
+	optional string mensaje = 4;
+}
+
+
+message DatosTransferir {
+	string id_Cliente = 1;
+	string id_Cuenta_Origen = 2;
+	string id_Cuenta_Destino = 3;
+	string monto = 4;
+	optional string mensaje = 5;
+}
+
+
+
+
